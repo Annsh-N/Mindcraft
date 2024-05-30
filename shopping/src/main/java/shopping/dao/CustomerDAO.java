@@ -96,8 +96,8 @@ public class CustomerDAO {
 	public void addBalance(Customer customer, Double amount) throws ClassNotFoundException, SQLException {
 		cn = DBUtils.openConnection();
 		
-		pst3 = cn.prepareStatement("UPDATE Customers SET wallet = ? WHERE username = ?");
-		pst3.setDouble(1, customer.getWallet() + amount);
+		pst3 = cn.prepareStatement("UPDATE Customers SET wallet = wallet + ? WHERE username = ?");
+		pst3.setDouble(1, amount);
 		pst3.setString(2, customer.getUsername());
 		pst3.execute();
 		
