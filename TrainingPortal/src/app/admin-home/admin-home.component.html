@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <app-navbar-admin></app-navbar-admin>
+    <h1 class="admin-centre">Admin Centre</h1>
+    <hr class="solid">
+    <br>
+    <div class="row main-content">
+        <div class="col left-col">
+            <div class="row">
+                <div class="card modules-card">
+                    <div class="card-header">Modules</div>
+                    <div class="card-body">
+                        <ul>
+                            <div *ngFor="let module of modules">
+                                <li class="row module-list" >{{module.title}}</li>
+                                <hr class="solid">
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card stats-card">
+                    <div class="card-header">Statistics</div>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row">
+                <div class="card users-card">
+                    <div class="card-header">Users</div>
+                    <div class="card-body">
+                        <ul>
+                            <div *ngFor="let user of users">
+                                <li class="row module-list" >
+                                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                                        {{user.name}}
+                                        <div class="user-progress-container">
+                                            <mat-progress-bar class="progress-bar" mode="determinate" value="{{user.progress}}"></mat-progress-bar>
+                                            <span class="progress-text">{{user.progress}}%</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <hr class="solid">
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

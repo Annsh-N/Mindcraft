@@ -1,0 +1,35 @@
+.button-container-editor {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    width: auto;
+    height: min-content;
+    margin: 0;
+    height: min-content;
+    align-self: right;
+}
+
+.btn-light {
+    border: none;
+    background-color: transparent;
+}
+
+.delete-button:hover {
+    color: #e63946;
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+.change-type-button:hover, .change-type-button:focus {
+    color: blue;
+    transform: scaleX(-1);
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+.edit-button:hover {
+    color: green;
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+.edit-button:disabled {
+    color: green;
+}

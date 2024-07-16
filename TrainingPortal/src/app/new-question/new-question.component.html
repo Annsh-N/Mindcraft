@@ -1,0 +1,16 @@
+<div class="card mb-3 question-add" *ngIf="questionType == 'Add'" clickable (click)="questionType='Options'">
+    <span class="plus">+</span>
+</div>
+<div class="card mb-3 question-options" *ngIf="questionType == 'Options' ">
+    <mat-radio-group [(ngModel)]="currentOption">
+        <mat-radio-button value="MCQ"><span class="question-type-option">MCQ</span></mat-radio-button>
+        <mat-radio-button value="Match the Following"><span class="question-type-option">Match the Following</span></mat-radio-button>
+        <mat-radio-button value="Order Items"><span class="question-type-option">Order Items</span></mat-radio-button>
+    </mat-radio-group>
+    <div class="button-container">
+        <button class="btn btn-primary mt-2 add-button" (click)="add()">Add</button>
+    </div>
+</div>
+<app-edit-mcq *ngIf="questionType == 'MCQ'" [editMode]="true" [questionText]="''" [options]="[]" [correctAnswer]="''"></app-edit-mcq>
+<app-edit-match *ngIf="questionType == 'Match the Following'" [editMode]="true" [questionText]="''" [optionsMap]="emptyMap" [titleMap]="emptyMap"></app-edit-match>
+<app-edit-order *ngIf="questionType == 'Order Items'" [editMode]="true" [questionText]="''" [options]="[]"></app-edit-order>

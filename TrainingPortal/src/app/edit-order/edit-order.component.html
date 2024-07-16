@@ -1,0 +1,62 @@
+<div class="card mb-3 question-preview" *ngIf="!editMode && changeType=='Order Items'">
+    <div class="card-header">
+        Question 1.
+        <div class="button-container-editor">
+            <div class="dropdown" dropdown>
+            <button dropdownToggle class="btn btn-light btn-sm change-type-button"><i class="bi bi-arrow-repeat"></i></button>
+            <div *dropdownMenu class="dropdown-menu" data-bs-theme="light">
+                <a class="dropdown-item" (click)="changeTypeFn('MCQ')">MCQ</a>
+                <a class="dropdown-item" (click)="changeTypeFn('Match the Following')">Match the Following</a>
+                <a class="dropdown-item" (click)="changeTypeFn('Order Items')">Order Items</a>
+            </div>
+            </div>
+            <button class="btn btn-light btn-sm delete-button" (click)="deleteQuestion()"><i class="bi bi-trash3-fill"></i></button>
+            <button class="btn btn-light btn-sm edit-button" (click)="editMode = true" [disabled]="editMode"><i class="bi bi-pen-fill"></i></button>
+        </div>
+    </div>
+    <div class="card-body">
+        {{questionText}}
+        <br>
+        <div class="row mb-4">
+          <div *ngFor="let option of options; index as i" class="col draggable">{{option}}</div>
+        </div>
+        <div class="row dropzones">
+          <div *ngFor="let option of options; index as i" class="col dropzone"></div>
+        </div>
+        <div class="button-container-reset">
+            <button class="btn btn-primary mt-3 reset-button">Reset Order</button>
+        </div>
+    </div>
+</div>
+<div class="card mb-3" *ngIf="editMode && changeType=='Order Items'">
+    <div class="card-header">
+        Question 1.
+        <div class="button-container-editor">
+            <div class="dropdown" dropdown>
+            <button dropdownToggle class="btn btn-light btn-sm change-type-button"><i class="bi bi-arrow-repeat"></i></button>
+            <div *dropdownMenu class="dropdown-menu" data-bs-theme="light">
+                <a class="dropdown-item" (click)="changeTypeFn('MCQ')">MCQ</a>
+                <a class="dropdown-item" (click)="changeTypeFn('Match the Following')">Match the Following</a>
+                <a class="dropdown-item" (click)="changeTypeFn('Order Items')">Order Items</a>
+            </div>
+            </div>
+            <button class="btn btn-light btn-sm delete-button" (click)="deleteQuestion()"><i class="bi bi-trash3-fill"></i></button>
+            <button class="btn btn-light btn-sm edit-button" (click)="editMode = true" [disabled]="editMode"><i class="bi bi-pen-fill"></i></button>
+        </div>
+    </div>
+    <div class="card-body">
+        <input type="text" class="form-control" [(ngModel)]="questionText" name="question" #question="ngModel" required>
+        <span *ngIf="question?.invalid && (question?.touched || question?.dirty)" class="text-danger">Question is Required!</span>
+        <br>
+        <div class="row mb-4">
+            <textarea *ngFor="let option of options; index as i; trackBy : trackByFn" type="text" class="col form-control draggable" [(ngModel)]="options[i]" #input attr.data-step="{{i}}" (blur)="removeOption(i)"></textarea>
+        </div>
+        <div class="add-button-container">
+          <button class="btn btn-success add-button" (click)="addOption()" [disabled]="options.length > 5">Add Option</button>
+        </div>
+        <div class="button-container">
+            <button class="btn btn-success mt-2 save-button" (click)="save()" [disabled]="question?.invalid">Save</button>
+        </div>
+    </div>
+</div>
+<app-new-question *ngIf="changeType != 'Order Items'" [questionType]="changeType"></app-new-question>

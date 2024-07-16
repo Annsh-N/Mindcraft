@@ -1,0 +1,16 @@
+.card {
+    border: 2px solid #e63946;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+    width: 900px;
+    height: auto;
+    background-color: white;
+    position: relative;
+    text-align: left;
+    margin-top: 50px;
+    /* display: flex; */
+}
+
+.card-header {
+    text-align: left;
+}

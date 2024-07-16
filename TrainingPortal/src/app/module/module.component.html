@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+    <div class="sidebar">
+        <div class="progress-container">
+            <div class="spinner-background"></div>
+            <mat-progress-spinner class="spinner"
+              [value]="progress"
+              [diameter]="150"
+              [strokeWidth]="15"
+              mode="determinate">
+            </mat-progress-spinner>
+            <div class="progress-text">{{ progress }}%</div>
+            <div class="progress-caption">of content completed</div>
+        </div>
+        <div class="answered-container">
+            <div class="answered-text">{{ answeredQuestions }}</div>
+            <div class="answered-caption">total questions answered</div>
+        </div>
+        <div class="reattempt-container">
+            <div class="reattempt-text">{{ reattemptQuestions }}</div>
+            <div class="reattempt-caption">questions re-attempted</div>
+        </div>
+    </div>
+    <div class="main-container">
+    <div class="module-content">
+        <div [innerHTML]="content" class="ql-editor"></div>
+    </div>
+
+    <hr class="solid">
+
+    <div class="mt-4 question-container">
+        <h1 class="question-title">Questions</h1>
+        <app-question-order></app-question-order>
+        <app-question-match></app-question-match>
+        <app-question-mcq></app-question-mcq>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,158 @@
+.card {
+    border: 2px solid #e63946;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+    width: 900px;
+    height: auto;
+    background-color: white;
+    position: relative;
+    text-align: left;
+    margin-top: 50px;
+    /* display: flex; */
+}
+
+.card-header {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.reset-button {
+    background-color: white;
+    color: blue;
+    border: white;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    margin-top: 0px !important;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    width: 100%;
+    height: min-content;
+    margin: 0;
+    height: min-content;
+}
+
+.tables-container {
+    display: flex;
+}
+
+th {
+    padding-bottom: 10px;
+}
+
+.match-table {
+    width: auto;
+    text-align: center;
+    width: 100%;
+}
+
+.left-column {
+    text-align: right;
+    width: 33%;
+}
+
+.right-column {
+    text-align: left;
+    width: 33%;
+}
+
+.middle-column {
+    width: 34%;
+    text-align: right;
+}
+
+.match-img {
+    height: 15px;
+}
+
+.plug {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: grab;
+    gap: 5px;
+}
+
+.plug.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.plug.dropped {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.socket {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    width: auto;
+}
+
+.button-container-editor {
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    width: auto;
+    height: min-content;
+    margin: 0;
+    height: min-content;
+    align-self: right;
+}
+
+.btn-light {
+    border: none;
+    background-color: transparent;
+}
+
+.delete-button:hover {
+    color: #e63946;
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+.change-type-button:hover, .change-type-button:focus {
+    color: blue;
+    transform: scaleX(-1);
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+.edit-button:hover {
+    color: green;
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+.edit-button:disabled {
+    color: green;
+}
+
+.question-preview:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+.add-button-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: min-content;
+    margin: 0;
+    height: min-content;
+    margin-top: 2%;
+}
+
+.button-container-reset {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: min-content;
+}

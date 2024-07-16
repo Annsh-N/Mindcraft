@@ -1,0 +1,94 @@
+.card {
+    border: 2px solid #e63946;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+    width: 900px;
+    height: auto;
+    background-color: white;
+    position: relative;
+    text-align: left;
+    margin-top: 50px;
+    /* display: flex; */
+}
+
+.card-header {
+    text-align: left;
+}
+
+.reset-button {
+    background-color: white;
+    color: blue;
+    border: white;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    margin-top: 0px !important;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: min-content;
+}
+
+.tables-container {
+    display: flex;
+}
+
+th {
+    padding-bottom: 10px;
+}
+
+.match-table {
+    width: auto;
+    text-align: center;
+    
+}
+
+.left-column {
+    text-align: right;
+    width: 33%;
+}
+
+.right-column {
+    text-align: left;
+    width: 33%;
+}
+
+.middle-column {
+    width: 34%;
+    text-align: right;
+}
+
+.match-img {
+    height: 15px;
+}
+
+.plug {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    cursor: grab;
+    gap: 5px;
+}
+
+.plug.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.plug.dropped {
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.socket {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+    width: auto;
+}

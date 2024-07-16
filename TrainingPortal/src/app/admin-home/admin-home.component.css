@@ -1,0 +1,117 @@
+body {
+    overflow: hidden;
+}
+
+.admin-centre {
+    margin-top: 80px;
+    margin-left: 5%;
+    margin-bottom: 0;
+    font-weight:900;
+    font-size: 2em;
+    color: #333333;
+}
+
+.solid {
+    margin-left: 4%;
+    margin-top: 3px;
+    margin-bottom: 0;
+    width: 92%;
+    color: #333333;
+}
+
+.card {
+    height: 260px;
+    width: 100%;
+}
+
+.main-content {
+    margin-top: 20px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 0;
+    font-weight:900;
+    font-size: 2em;
+    color: #333333;
+}
+
+.row {
+    margin-top: 20px;
+    margin-bottom: 0;
+    color: #333333;
+}
+
+.left-col {
+    margin-right: 5%;
+}
+
+.card {
+    background-color: rgb(225, 225, 225);
+    border-color: rgb(225, 225, 225);
+}
+
+.card-header {
+    background-color: rgb(225, 225, 225);
+    padding-bottom: 0%;
+    font-size: 0.7em;
+    font-weight: 500;
+}
+
+.card-body {
+    overflow-y: scroll;
+    padding-top: 5px;
+}
+
+.users-card {
+    height: 550px;
+}
+
+.modules-card {
+    height: 230px;
+}
+
+.stats-card {
+    height: 300px;
+}
+
+.module-list {
+    font-size: medium;
+    font-weight: 400;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /* border-bottom: 1px solid rgba(80, 80, 80, 0.3); */
+    padding-bottom: 7px;
+    padding-top: 7px;
+    padding-left: 10px;
+}
+
+.module-list:hover {
+    background-color: lightgrey;
+    border-radius: 8px;
+    border-bottom: lightgrey;
+}
+
+ul {
+    padding-left: 8px;
+}
+
+.solid {
+    width: 100%;
+    margin: 0;
+    color: rgb(170, 170, 170);
+}
+
+.user-progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 140px;
+}
+
+.progress-bar {
+    width: 100px;
+}
+
+.progress-text {
+    font-weight: 400;
+    font-size: small;
+}

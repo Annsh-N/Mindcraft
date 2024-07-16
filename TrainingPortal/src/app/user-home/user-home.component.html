@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Home</title>
+</head>
+<body>
+    <app-navbar></app-navbar>
+    <div class="sidebar">
+        <div class="progress-container">
+            <div class="spinner-background"></div>
+            <mat-progress-spinner class="spinner"
+              [value]="progress"
+              [diameter]="150"
+              [strokeWidth]="15"
+              mode="determinate">
+            </mat-progress-spinner>
+            <div class="progress-text">{{ progress }}%</div>
+            <div class="progress-caption">of content completed</div>
+        </div>
+        <div class="answered-container">
+            <div class="answered-text">{{ answeredQuestions }}</div>
+            <div class="answered-caption">total questions answered</div>
+        </div>
+        <div class="reattempt-container">
+            <div class="reattempt-text">{{ reattemptQuestions }}</div>
+            <div class="reattempt-caption">questions re-attempted</div>
+        </div>
+    </div>
+    <div class="container mt-4 module-container">
+        <div *ngFor="let module of modules; let i = index" 
+             [class.locked]="i >= completedModules"
+             class="card module-card mb-3 border-danger"
+             [ngClass]="{'clickable': i < completedModules}" [routerLink]="(i==0) ? '/module' : '/home'">
+          <div class="card-header text-white bg-danger">
+            Module {{ i + 1 }} <span *ngIf="i == 0"> : Multi Factor Authentication </span>
+          </div>
+          <div class="card-body bg-white">
+            <p *ngIf="i != 0" class="card-text module-preview">Content for Module {{ i + 1 }}</p>
+            <p *ngIf="i == 0" class="card-text module-preview">Multi-Factor Authentication (MFA) enhances security by requiring users to provide multiple forms of verification, such as something they know (password), something they have (mobile device), and something they are (biometrics). It significantly reduces the risk of unauthorized access, phishing attacks, and credential theft, while ensuring compliance with various regulatory standards.</p>
+          </div>
+          
+        </div>
+    </div>
+      
+</body>
+</html>

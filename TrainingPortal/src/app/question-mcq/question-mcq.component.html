@@ -1,0 +1,10 @@
+<div class="card mb-3">
+    <div class="card-header">Question 3.</div>
+    <div class="card-body">
+        {{questionText}}
+        <br><br>
+        <mat-radio-group *ngFor="let option of shuffledOptions index as i" name="options">
+            <mat-radio-button value="{{i}}">{{option}}</mat-radio-button>
+        </mat-radio-group>
+    </div>
+</div>

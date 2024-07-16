@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module</title>
+</head>
+<body>
+    <app-navbar-admin></app-navbar-admin>
+    <div class="main-container">
+    <div style="height: auto;" *ngIf="!showEditor">
+    <div *ngIf="!showEditor" [innerHTML]="adminContent" class="ql-editor"></div>
+    </div>
+    <button *ngIf="!showEditor" class="save-content btn btn-primary" (click)="showEditor = true">Edit Content</button>
+    <quill-editor *ngIf="showEditor" [(ngModel)]="adminContent" class="quill-editor"></quill-editor>
+    <button *ngIf="showEditor" class="save-content btn btn-primary" (click)="saveContent()">Save Content</button>
+
+    <hr class="solid">
+
+    <div class="mt-4 question-container">
+        <h1 class="question-title">Questions</h1>
+        <app-edit-mcq></app-edit-mcq>
+        <app-edit-order></app-edit-order>
+        <app-edit-match></app-edit-match>
+        <app-new-question></app-new-question>
+    </div>
+    </div>
+</body>
+</html>
+

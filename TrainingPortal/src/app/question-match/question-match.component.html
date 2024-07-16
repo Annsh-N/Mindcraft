@@ -1,0 +1,36 @@
+<div class="card mb-3">
+    <div class="card-header">Question 2.</div>
+    <div class="card-body">
+        {{questionText}}
+        <br><br>
+        <table class="match-table">
+            <thead>
+              <tr>
+                <th class="left-column">{{titleMap.keys().next().value}}</th>
+                <th class="middle-column"></th>
+                <th class="right-column">{{titleMap.values().next().value}}</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let left of leftOptions; index as i">
+                <tr>
+                    <td class="left-column">
+                        <div class="plug" draggable="true" attr.data-step="{{i}}">
+                            <span>{{left}}</span>
+                            <img class="match-img" draggable="false" src="assets/images/plug.jpg">
+                        </div>
+                    </td>
+                    <td class="middle-column connector"></td>
+                    <td class="right-column">
+                        <div class="socket">
+                            <img class="match-img" src="assets/images/socket.jpg">
+                            <span>{{rightOptions.at(i)}}</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        <div class="button-container">
+            <button class="btn btn-primary mt-3 reset-button" (click)="resetOrder()">Reset Order</button>
+        </div>
+    </div>
+</div>

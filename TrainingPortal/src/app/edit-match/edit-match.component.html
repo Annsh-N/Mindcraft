@@ -1,0 +1,112 @@
+<div class="card mb-3 question-preview" *ngIf="!editMode && changeType=='Match the Following'">
+    <div class="card-header">
+        Question 2.
+        <div class="button-container-editor">
+            <div class="dropdown" dropdown>
+            <button dropdownToggle class="btn btn-light btn-sm change-type-button"><i class="bi bi-arrow-repeat"></i></button>
+            <div *dropdownMenu class="dropdown-menu" data-bs-theme="light">
+                <a class="dropdown-item" (click)="changeTypeFn('MCQ')">MCQ</a>
+                <a class="dropdown-item" (click)="changeTypeFn('Match the Following')">Match the Following</a>
+                <a class="dropdown-item" (click)="changeTypeFn('Order Items')">Order Items</a>
+            </div>
+            </div>
+            <button class="btn btn-light btn-sm delete-button" (click)="deleteQuestion()"><i class="bi bi-trash3-fill"></i></button>
+            <button class="btn btn-light btn-sm edit-button" (click)="editMode = true" [disabled]="editMode"><i class="bi bi-pen-fill"></i></button>
+        </div>
+    </div>
+    <div class="card-body">
+        {{questionText}}
+        <br><br>
+        <table class="match-table">
+            <thead>
+              <tr>
+                <th class="left-column">{{titleMap.keys().next().value}}</th>
+                <th class="middle-column"></th>
+                <th class="right-column">{{titleMap.values().next().value}}</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let left of leftOptions; index as i">
+                <tr>
+                    <td class="left-column">
+                        <div class="plug">
+                            <span>{{left}}</span>
+                            <img class="match-img" draggable="false" src="assets/images/plug.jpg">
+                        </div>
+                    </td>
+                    <td class="middle-column connector"></td>
+                    <td class="right-column">
+                        <div class="socket">
+                            <img class="match-img" src="assets/images/socket.jpg">
+                            <span>{{rightOptions.at(i)}}</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+          </table>
+        <div class="button-container-reset">
+            <button class="btn btn-primary mt-3 reset-button">Reset Order</button>
+        </div>
+    </div>
+</div>
+<div class="card mb-3" *ngIf="editMode && changeType=='Match the Following'">
+    <div class="card-header">
+        Question 2.
+        <div class="button-container-editor">
+            <div class="dropdown" dropdown>
+            <button dropdownToggle class="btn btn-light btn-sm change-type-button"><i class="bi bi-arrow-repeat"></i></button>
+            <div *dropdownMenu class="dropdown-menu" data-bs-theme="light">
+                <a class="dropdown-item" (click)="changeTypeFn('MCQ')">MCQ</a>
+                <a class="dropdown-item" (click)="changeTypeFn('Match the Following')">Match the Following</a>
+                <a class="dropdown-item" (click)="changeTypeFn('Order Items')">Order Items</a>
+            </div>
+            </div>
+            <button class="btn btn-light btn-sm delete-button" (click)="deleteQuestion()"><i class="bi bi-trash3-fill"></i></button>
+            <button class="btn btn-light btn-sm edit-button" (click)="editMode = true" [disabled]="editMode"><i class="bi bi-pen-fill"></i></button>
+        </div>
+    </div>
+    <div class="card-body">
+        <input type="text" class="form-control" [(ngModel)]="questionText" name="question" #question="ngModel" required>
+        <span *ngIf="question?.invalid && (question?.touched || question?.dirty)" class="text-danger">Question is Required!</span>
+        <br><br>
+        <table class="match-table">
+            <thead>
+              <tr>
+                <th class="left-column">
+                    <input class="form-control" [(ngModel)]="titleMap.keys().next().value">
+                    
+                </th>
+                <th class="right-column">
+                    <input class="form-control" [(ngModel)]="titleMap.values().next().value">
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let left of leftOptions; index as i; trackBy : trackByFn">
+                    <td class="left-column">
+                        <div class="plug">
+                            <input class="form-control" [(ngModel)]="leftOptions[i]" #option (blur)="removeOption(i)">
+                            <img class="match-img" draggable="false" src="assets/images/plug.jpg">
+                        </div>
+                    </td>
+                    <td class="right-column">
+                        <div class="socket">
+                            <img class="match-img" src="assets/images/socket.jpg">
+                            <input class="form-control" [(ngModel)]="rightOptions[i]" (blur)="removeOption(i)">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+          <div class="add-button-container">
+            <button class="btn btn-success add-button" (click)="addOption()" [disabled]="optionsMap.size > 5">Add Option</button>
+          </div>
+          <div class="button-container">
+              <button class="btn btn-success mt-2 save-button" (click)="save()" [disabled]="question?.invalid">Save</button>
+          </div>
+          <div class="button-container">
+            <span *ngIf="uniqueAlert" class="text-danger">All options must be unique!</span>
+            <span *ngIf="blankAlert" class="text-danger">Blank options are not allowed!</span>
+          </div>
+    </div>
+</div>
+<app-new-question *ngIf="changeType != 'Match the Following'" [questionType]="changeType"></app-new-question>

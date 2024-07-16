@@ -1,0 +1,16 @@
+<div class="card mb-3">
+    <div class="card-header">Question 1.</div>
+    <div class="card-body">
+        {{questionText}}
+        <br>
+        <div class="row mb-4">
+          <div *ngFor="let option of shuffledOptions; index as i" class="col draggable" #draggable draggable="true" attr.data-step="{{i}}">{{option}}</div>
+        </div>
+        <div class="row dropzones">
+          <div *ngFor="let option of shuffledOptions; index as i" class="col dropzone" #dropzone attr.data-step="{{i}}"></div>
+        </div>
+        <div class="button-container-reset">
+            <button class="btn btn-primary mt-3 reset-button" (click)="resetOrder()">Reset Order</button>
+        </div>
+    </div>
+</div>

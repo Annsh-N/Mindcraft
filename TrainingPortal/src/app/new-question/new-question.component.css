@@ -1,0 +1,65 @@
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.4);
+    width: 900px;
+    height: auto;
+    background-color: lightgray;
+    position: relative;
+    text-align: left;
+    margin-top: 50px;
+    align-items: center;
+    /* display: flex; */
+}
+
+.question-add {
+    text-align: center;
+    background-color: lightgray;
+    color: grey;
+    border: none;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.question-add:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+}
+
+.plus {
+    font-size: 3em;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: min-content;
+    margin-bottom: 5px;
+    height: min-content;
+}
+
+.mat-radio-button {
+    font-size: 2em;
+
+}
+
+.question-type-option {
+    font-size: 1.2em;
+    color: rgb(95, 95, 95);
+}
+
+.add-button {
+    background-color: transparent;
+    color: grey;
+    border: 1px solid grey; 
+}
+
+.add-button:active {
+    background-color: gray;
+    color: white;
+    border: 1px solid grey;
+}
+
+
